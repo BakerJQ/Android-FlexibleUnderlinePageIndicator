@@ -5,11 +5,16 @@ Android PageIndicator fits irregular size & position of tabs for a ViewPager
 ![](https://github.com/BakerJQ/FlexibleUnderlinePageIndicator/blob/master/Screenshots/show.gif)
 
 ## How to use
-### Init
-Just use it as the same as the original PopupWindow
+### Java code
 ```java
-mPopupWindow = new BackgroundBlurPopupWindow(mTextView, WindowManager.LayoutParams.WRAP_CONTENT,
-        WindowManager.LayoutParams.WRAP_CONTENT, this, true);
-mPopupWindow.setFocusable(true);
-mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
-mPopupWindow.setAnimationStyle(android.R.style.Animation_Dialog);
+View tab1 = findViewById(R.id.tab1);
+View tab2 = findViewById(R.id.tab2);
+View tab3 = findViewById(R.id.tab3);
+View tab4 = findViewById(R.id.tab4);
+FlexibleUnderlinePageIndicator indicator = (FlexibleUnderlinePageIndicator) findViewById(R.id.indicator);
+ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+viewPager.setAdapter(new SimplePageAdapter(this));
+//set the viewpager and tabs
+indicator.setUnderLineView(tab1, tab2, tab3, tab4);
+indicator.setViewPager(viewPager);
+```
